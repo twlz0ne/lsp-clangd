@@ -1,27 +1,42 @@
 # lsp-clangd
 
 A configuration for an Emacs LSP client for Clang-based languages
-using
-[clangd](https://github.com/llvm-mirror/clang-tools-extra/tree/master/clangd)
-as the language server.
+using [`clangd`](https://clang.llvm.org/extra/clangd.html) as the
+language server.
+
+Note that `clangd` is still a work-in-progress.  See the recent
+[commits](https://github.com/llvm-mirror/clang-tools-extra/commits/master/clangd).
+It is highly recommended that you run the latest version of `clangd`
+to get the best behavior.
 
 ## Requirements
 
-* `clangd`
-* `lsp-mode`
+* [`clangd`](https://clang.llvm.org/extra/clangd.html)
+* [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
 
 ## Installing `clangd`
 
 Since `clangd` is part of `clang-tools-extra` since Clang 5, it can be
 installed by all the same methods for installing Clang 5 or later.
 
-With macOs, the easiest way is to install via Homebrew.
+With macOS, the easiest way is to install via Homebrew.  Note that
+this recipe is keg-only, so you must customize `lsp-clangd-executable`
+to `/usr/local/opt/llvm/bin/clangd`.
 
 ``` shell
-brew install llvm
+brew install llvm --HEAD
 ```
 
 ## Enabling `lsp-clangd`
+
+Currently, the only way to install `lsp-clangd` is to download it from
+https://github.com/emacs-lsp/lsp-clangd.git and configure it yourself.
+MELPA support, which will greatly simplify enabling `lsp-clangd` is
+coming soon.
+
+By default, `lsp-clangd` searches for `clangd` on the executable
+search path.  The location of `clangd` can be changed by customizing
+the variable `lsp-clang-executable`.
 
 ### Using `use-package`
 
@@ -48,4 +63,22 @@ to a suitable path, *e.g.* `<path-to-lsp-clangd>`.
 (add-hook 'c-mode--hook #'lsp-clangd-c-enable)
 (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
 (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable)
+```
+
+### Advanced Configuration
+
+The following configuration customizes the location of the `clangd`
+executable for macOS.
+
+``` emacs-lisp
+(use-package lsp-clangd
+  :load-path
+  "<path-to-lsp-clangd>"
+  :init
+  (when (equal system-type 'darwin)
+    (setq lsp-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+
+  (add-hook 'c-mode--hook #'lsp-clangd-c-enable)
+  (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
+  (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable))
 ```
