@@ -27,6 +27,10 @@ https://github.com/emacs-lsp/lsp-clangd.git and configure it yourself.
 MELPA support, which will greatly simplify enabling `lsp-clangd` is
 coming soon.
 
+By default, `lsp-clangd` searches for `clangd` on the executable
+search path.  The location of `clangd` can be changed by customizing
+the variable `lsp-clang-executable`.
+
 ### Using `use-package`
 
 ``` emacs-lisp
