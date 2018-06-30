@@ -1,14 +1,13 @@
 # lsp-clangd
 
 A configuration for an Emacs LSP client for Clang-based languages
-using
-[clangd](https://github.com/llvm-mirror/clang-tools-extra/tree/master/clangd)
-as the language server.
+using [`clangd`](https://clang.llvm.org/extra/clangd.html) as the
+language server.
 
 ## Requirements
 
-* `clangd`
-* `lsp-mode`
+* [`clangd`](https://clang.llvm.org/extra/clangd.html)
+* [`lsp-mode`](https://github.com/emacs-lsp/lsp-mode)
 
 ## Installing `clangd`
 
