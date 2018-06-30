@@ -4,6 +4,11 @@ A configuration for an Emacs LSP client for Clang-based languages
 using [`clangd`](https://clang.llvm.org/extra/clangd.html) as the
 language server.
 
+Note that `clangd` is still a work-in-progress.  See the recent
+[commits](https://github.com/llvm-mirror/clang-tools-extra/commits/master/clangd).
+It is highly recommended that you run the latest version of `clangd`
+to get the best behavior.
+
 ## Requirements
 
 * [`clangd`](https://clang.llvm.org/extra/clangd.html)
@@ -19,7 +24,7 @@ this recipe is keg-only, so you must customize `lsp-clangd-executable`
 to `/usr/local/opt/llvm/bin/clangd`.
 
 ``` shell
-brew install llvm
+brew install llvm --HEAD
 ```
 
 ## Enabling `lsp-clangd`
