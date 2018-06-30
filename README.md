@@ -15,7 +15,7 @@ as the language server.
 Since `clangd` is part of `clang-tools-extra` since Clang 5, it can be
 installed by all the same methods for installing Clang 5 or later.
 
-With macOs, the easiest way is to install via Homebrew.
+With macOS, the easiest way is to install via Homebrew.
 
 ``` shell
 brew install llvm
