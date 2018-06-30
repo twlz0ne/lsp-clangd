@@ -14,7 +14,9 @@ language server.
 Since `clangd` is part of `clang-tools-extra` since Clang 5, it can be
 installed by all the same methods for installing Clang 5 or later.
 
-With macOS, the easiest way is to install via Homebrew.
+With macOS, the easiest way is to install via Homebrew.  Note that
+this recipe is keg-only, so you must customize `lsp-clangd-executable`
+to `/usr/local/opt/llvm/bin/clangd`.
 
 ``` shell
 brew install llvm
@@ -56,4 +58,22 @@ to a suitable path, *e.g.* `<path-to-lsp-clangd>`.
 (add-hook 'c-mode--hook #'lsp-clangd-c-enable)
 (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
 (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable)
+```
+
+### Advanced Configuration
+
+The following configuration customizes the location of the `clangd`
+executable for macOS.
+
+``` emacs-lisp
+(use-package lsp-clangd
+  :load-path
+  "<path-to-lsp-clangd>"
+  :init
+  (when (equal system-type 'darwin)
+    (setq lsp-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+
+  (add-hook 'c-mode--hook #'lsp-clangd-c-enable)
+  (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
+  (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable))
 ```
