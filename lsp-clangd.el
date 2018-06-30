@@ -3,7 +3,7 @@
 ;; Copyright (C) 2017 Thomas Brown <tabsoftwareconsulting@gmail.com>
 
 ;; Author: Thomas Brown <tabsoftwareconsulting@gmail.com>
-;; Version: 3.0
+;; Version: 3.1.0
 ;; Package-Requires: ((lsp-mode "3.0") (emacs "24.3"))
 ;; Keywords: lsp, clang, clangd, c, c++, objective-c, objective-c++
 ;; URL: https://github.com/tee3/lsp-clangd
