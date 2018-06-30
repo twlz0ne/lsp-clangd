@@ -22,6 +22,11 @@ brew install llvm
 
 ## Enabling `lsp-clangd`
 
+Currently, the only way to install `lsp-clangd` is to download it from
+https://github.com/emacs-lsp/lsp-clangd.git and configure it yourself.
+MELPA support, which will greatly simplify enabling `lsp-clangd` is
+coming soon.
+
 ### Using `use-package`
 
 ``` emacs-lisp
