@@ -1,6 +1,6 @@
 ;;; lsp-clangd.el --- clangd support for lsp-mode -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2017 Thomas Brown <tabsoftwareconsulting@gmail.com>
+;; Copyright (C) 2017-2018 Thomas Brown <tabsoftwareconsulting@gmail.com>
 
 ;; Author: Thomas Brown <tabsoftwareconsulting@gmail.com>
 ;; Version: 3.1.0
