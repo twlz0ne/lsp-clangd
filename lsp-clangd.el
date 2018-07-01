@@ -26,11 +26,15 @@
 (require 'lsp-mode)
 (require 'lsp-common)
 
+(defgroup lsp-clangd nil
+  "Customization variables for lsp-clangd."
+  :group 'tools)
+
 (defcustom lsp-clangd-executable
   "clangd"
   "The clangd executable."
   :type 'string
-  :group 'lsp-mode)
+  :group 'lsp-clangd)
 
 (lsp-define-stdio-client lsp-clangd-c++
                          "cpp"
