@@ -1,14 +1,25 @@
 ;;; lsp-clangd.el --- clangd support for lsp-mode -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2017 Thomas Brown <tabsoftwareconsulting@gmail.com>
+;; Copyright (C) 2017-2018 Thomas Brown <tabsoftwareconsulting@gmail.com>
 
 ;; Author: Thomas Brown <tabsoftwareconsulting@gmail.com>
-;; Version: 3.1.0
+;; Version: 3.1.1
 ;; Package-Requires: ((lsp-mode "3.0") (emacs "24.3"))
 ;; Keywords: lsp, clang, clangd, c, c++, objective-c, objective-c++
-;; URL: https://github.com/tee3/lsp-clangd
+;; URL: https://github.com/emacs-lsp/lsp-clangd
 
 ;;; Commentary:
+
+;;; The following Emacs Lisp will enable lsp-clangd after lsp-mode is
+;;; loaded.
+;;;
+;;;    (with-eval-after-load 'lsp-mode
+;;;      (require 'lsp-clangd)
+;;;      (add-hook 'c-mode--hook #'lsp-clangd-c-enable)
+;;;      (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
+;;;      (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable))
+;;;
+;;; See `lsp-clangd-executable' to customize the path to clangd.
 
 ;;; Code:
 
