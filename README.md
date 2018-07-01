@@ -40,15 +40,20 @@ the variable `lsp-clang-executable`.
 
 ### Using standard Emacs Lisp
 
+Install `lsp-mode` via some suitable method and clone this repository
+to a suitable path, *e.g.* `<path-to-lsp-clangd>`.
+
 The following Emacs Lisp will enable lsp-clangd after lsp-mode is
 loaded.
 
 ``` emacs-lisp
-   (with-eval-after-load 'lsp-mode
-     (require 'lsp-clangd)
-     (add-hook 'c-mode--hook #'lsp-clangd-c-enable)
-     (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
-     (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable))
+(add-to-list 'load-path "<path-to-lsp-clangd>")
+
+(with-eval-after-load 'lsp-mode
+  (require 'lsp-clangd)
+  (add-hook 'c-mode--hook #'lsp-clangd-c-enable)
+  (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
+  (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable))
 ```
 
 See `lsp-clangd-executable` to customize the path to clangd.
@@ -64,21 +69,6 @@ See `lsp-clangd-executable` to customize the path to clangd.
   (add-hook 'c-mode--hook #'lsp-clangd-c-enable)
   (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
   (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable))
-```
-
-### Manually
-
-Install `lsp-mode` via some suitable method and clone this repository
-to a suitable path, *e.g.* `<path-to-lsp-clangd>`.
-
-```emacs-lisp
-(add-to-list 'load-path "<path-to-lsp-clangd>")
-
-(require 'lsp-clangd)
-
-(add-hook 'c-mode--hook #'lsp-clangd-c-enable)
-(add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
-(add-hook 'objc-mode-hook #'lsp-clangd-objc-enable)
 ```
 
 ### Advanced Configuration
