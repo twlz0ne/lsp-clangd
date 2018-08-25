@@ -29,10 +29,7 @@ brew install llvm --HEAD
 
 ## Enabling `lsp-clangd`
 
-Currently, the only way to install `lsp-clangd` is to download it from
-https://github.com/emacs-lsp/lsp-clangd.git and configure it yourself.
-MELPA support, which will greatly simplify enabling `lsp-clangd` is
-coming soon.
+`lsp-clangd` is available from MELPA.
 
 By default, `lsp-clangd` searches for `clangd` on the executable
 search path.  The location of `clangd` can be changed by customizing
@@ -65,10 +62,10 @@ See `lsp-clangd-executable` to customize the path to clangd.
 (use-package lsp-clangd
   :load-path
   "<path-to-lsp-clangd>"
-  :init
-  (add-hook 'c-mode--hook #'lsp-clangd-c-enable)
-  (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable)
-  (add-hook 'objc-mode-hook #'lsp-clangd-objc-enable))
+  :hook
+  ((c-mode . lsp-clangd-c-enable)
+   (c++-mode . lsp-clangd-c++-enable)
+   (objc-mode . lsp-clangd-objc-enable)))
 ```
 
 ### Advanced Configuration
